@@ -9,6 +9,7 @@
 name: Build System Image
 
 on: 
+  workflow_dispatch:
   push:
     branches:
       - master
