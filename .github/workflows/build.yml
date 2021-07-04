@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-20.04
 
     env:
-      VENDOR: xiaomi
-      DEVICE: clover
+      VENDOR: huawei
+      DEVICE: kiwi
       ANDROID_ROOT: /home/runner/work/halium/
 
     steps:
@@ -34,6 +34,12 @@ jobs:
     
     - name: Initialization environment
       run: |
+       sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+       sudo apt -y autoremove --purge
+       sudo apt clean
+       sudo snap remove lxd
+       sudo snap remove core18
+        sudo snap remove snapd
         sudo apt-get update
         sudo apt-get install -y \
         openjdk-8-jdk android-tools-adb bc \
@@ -52,8 +58,8 @@ jobs:
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
         chmod +x ~/bin/repo
-        git config --global user.name "UBports Xiaomi Pad 4 CI"
-        git config --global user.email "thisemaildoesnotexist@exist.com"
+        git config --global user.name "UBports Honor5X CI"
+        git config --global user.email "flytree1124@gmail.com"
 
     - name: Downloading source code
       run: |
@@ -62,7 +68,7 @@ jobs:
         cd $ANDROID_ROOT
         repo init -u https://github.com/Halium/android -b halium-9.0 --depth=1
         mkdir -p $ANDROID_ROOT/.repo/local_manifests
-        wget https://raw.githubusercontent.com/ubuntu-touch-clover/local_manifests/halium-9.0/$DEVICE.xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
+        wget https://raw.githubusercontent.com/honor5Xjimdo/local_manifests/main/$DEVICE.xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
         repo sync -j8 -c --no-clone-bundle --no-tags
     
     - name: Build HAL
