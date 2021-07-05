@@ -10,7 +10,7 @@ breakfast $DEVICE
 make -j$(nproc) mkbootimg
 make -j$(nproc) fec
 make -j$(nproc) halium-boot
-touch /home/runner/work/halium/out/soong/.intermediates/frameworks/base/packages/EasterEgg/EasterEgg/android_common/dex/EasterEgg.jar
+#touch /home/runner/work/halium/out/soong/.intermediates/frameworks/base/packages/EasterEgg/EasterEgg/android_common/dex/EasterEgg.jar
 make -j$(nproc) systemimage 
 
 echo "md5sum halium-boot.img and system.img"
