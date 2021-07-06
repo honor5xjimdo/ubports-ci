@@ -67,7 +67,7 @@ jobs:
         source halium.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://github.com/Halium/android -b halium-9.0 --depth=1
+        repo init -u https://github.com/Halium/android -b halium-8.1 --depth=1
         mkdir -p $ANDROID_ROOT/.repo/local_manifests
         wget https://raw.githubusercontent.com/honor5xjimdo/local_manifests/main/kiwi.xml -O $ANDROID_ROOT/.repo/local_manifests/$DEVICE.xml
         repo sync -j128 -c --no-clone-bundle --no-tags
