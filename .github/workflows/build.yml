@@ -40,7 +40,7 @@ jobs:
        sudo apt clean
        sudo snap remove lxd
        sudo snap remove core18
-        sudo snap remove snapd
+       # sudo snap remove snapd
         sudo apt-get update
         sudo apt-get install -y \
         openjdk-8-jdk android-tools-adb bc \
